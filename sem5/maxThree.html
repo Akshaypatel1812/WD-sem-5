@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Maximum Value</title>
+</head>
+<body>
+
+    <script>
+        function findMaximumValue() {
+            let value1 = parseFloat(prompt("Enter the first value:"));
+            let value2 = parseFloat(prompt("Enter the second value:"));
+            let value3 = parseFloat(prompt("Enter the third value:"));
+
+            // Validate input
+            if (isNaN(value1) || isNaN(value2) || isNaN(value3)) {
+                console.log("Please enter valid numeric values.");
+                return;
+            }
+
+            // Find the maximum value
+            let maxValue = Math.max(value1, value2, value3);
+
+            console.log("The maximum value among", value1 + ",", value2 + ", and", value3 + " is:", maxValue);
+        }
+
+        // Call the function
+        findMaximumValue();
+    </script>
+
+</body>
+</html>

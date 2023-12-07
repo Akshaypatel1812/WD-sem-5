@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4-Digit Integer Form</title>
+  <script>
+    function validateInput() {
+      // Get the input value
+      const inputElement = document.getElementById('fourDigitInput');
+      const inputValue = inputElement.value.trim();
+
+      // Regular expression to match a 4-digit integer
+      const regex = /^\d{4}$/;
+
+      // Check if the input is a valid 4-digit integer
+      if (regex.test(inputValue)) {
+        // Valid input
+        alert('Valid input: ' + inputValue);
+      } else {
+        // Invalid input
+        alert('Invalid input. Please enter a 4-digit integer.');
+        // Clear the input field
+        inputElement.value = '';
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>4-Digit Integer Form</h2>
+  
+  <form>
+    <!-- Input field for 4-digit integer -->
+    <label for="fourDigitInput">Enter a 4-digit integer:</label>
+    <input type="text" id="fourDigitInput" pattern="\d{4}" title="Please enter a 4-digit integer" required>
+
+    <!-- Submit button with validation -->
+    <input type="button" value="Submit" onclick="validateInput()">
+  </form>
+</body>
+</html>

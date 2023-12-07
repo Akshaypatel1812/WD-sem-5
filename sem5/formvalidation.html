@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+</head>
+<body>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="button" onclick="validateLoginForm()">Login</button>
+    </form>
+
+    <script>
+        function validateLoginForm() {
+            // Get the input values
+            var usernameInput = document.getElementById("username").value;
+            var passwordInput = document.getElementById("password").value;
+
+            // Regular expressions for validations
+            var usernamePattern = /^[^0-9@_].*$/;
+            var passwordPattern = /^.{6,12}$/;
+
+            // Validate the username
+            if (usernameInput.trim() === '' || !usernamePattern.test(usernameInput)) {
+                alert("Invalid username. It should not start with _, @, or a number.");
+                return;
+            }
+
+            // Validate the password
+            if (passwordInput.trim() === '' || !passwordPattern.test(passwordInput)) {
+                alert("Invalid password. It should be 6 to 12 characters in length.");
+                return;
+            }
+
+            // If both validations pass, you can proceed with the login logic here.
+            alert("Login successful!");
+        }
+    </script>
+</body>
+</html>

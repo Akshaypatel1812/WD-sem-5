@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Odd or Even Checker</title>
+</head>
+<body>
+    <h1>Odd or Even Checker</h1>
+    <p>Enter an integer to check if it's odd or even:</p>
+    <input type="number" id="numberInput">
+    <button onclick="checkOddOrEven()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        function checkOddOrEven() {
+            // Get the input value as an integer
+            var number = parseInt(document.getElementById("numberInput").value);
+
+            // Check if the number is NaN (not a number)
+           
+                if (number % 2 === 0) {
+                    document.getElementById("result").textContent = number + " is even.";
+                } else {
+                    document.getElementById("result").textContent = number + " is odd.";
+                }
+            }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $allowedExtensions = ["jpg", "jpeg", "gif", "png"];
+    $maxFileSize = 800 * 1024; // 800 KB
+    $uploadDir = "uploads/"; // Directory where files will be uploaded
+
+    // Check if the file was uploaded without errors
+    if (isset($_FILES["file"]) && $_FILES["file"]["error"] == UPLOAD_ERR_OK) {
+        $fileName = $_FILES["file"]["name"];
+        $fileSize = $_FILES["file"]["size"];
+        $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+        // Check file type
+        if (!in_array($fileType, $allowedExtensions)) {
+            echo "Error: Only JPG, JPEG, GIF, and PNG files are allowed.";
+        } elseif ($fileSize > $maxFileSize) {
+            echo "Error: File size should not exceed 800 KB.";
+        } else {
+            // Check if the file already exists
+            $timestamp = time();
+            $newFileName = $uploadDir . $timestamp . "_" . $fileName;
+
+            if (file_exists($newFileName)) {
+                echo "Error: A file with the same name already exists.";
+            } else {
+                // Move the uploaded file to the destination directory
+                move_uploaded_file($_FILES["file"]["tmp_name"], $newFileName);
+                echo "File uploaded successfully. New file name: " . basename($newFileName);
+            }
+        }
+    } else {
+        echo "Error: " . $_FILES["file"]["error"];
+    }
+}
+?>
+
+<form method="post" enctype="multipart/form-data">
+    <label for="file">Select file to upload:</label>
+    <input type="file" name="file" id="file" accept=".jpg, .jpeg, .gif, .png" required>
+    <button type="submit">Upload</button>
+</form>
+
+</body>
+</html>

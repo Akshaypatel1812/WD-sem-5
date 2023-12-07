@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <input type="number" id="numberInput">
+    <button onclick="printOddNum()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        function printOddNum(){
+            const numberInput=document.getElementById('numberInput').value;
+            const i=0;
+            for(i=0;i<=numberInput;i++){
+                if(i%2===1){
+                    document.getElementById("result").textContent = i;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

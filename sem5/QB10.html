@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+          color: red;
+        }
+      </style>
+</head>
+
+<body>
+    <label for="username">Username:</label>
+    <input type="text" id="username">
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password">
+    <br>
+
+    <label for="email">EmailAdd:</label>
+    <input type="email" id="email">
+    <br>
+
+    <button>Register Now</button>
+
+    <!-- Display errors here -->
+    <div id="errorMessages" class="error"></div>
+
+
+    <script>
+        var usernameInput = document.getElementById('username');
+        var passwordInput = document.getElementById('password');
+        var emailInput = document.getElementById('email');
+
+        document.getElementById('errorMessages').innerHTML = "";
+
+        
+        if (/^[_@0-9]/.test(username)){
+            displayError("Username should not start with @ or number");
+            return;
+        }
+
+        if(passwordInput.length<6 || passwordInput.length>12){
+            alert('invalid password')
+        }
+
+    </script>
+</body>
+
+</html>

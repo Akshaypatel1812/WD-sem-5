@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name Length Calculator</title>
+</head>
+<body>
+
+<!-- HTML form with one textbox to get user's name -->
+<form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>
+    Enter your name: <input type="text" name="userName" required>
+    <input type="submit" value="Submit">
+</form>
+
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $userName = $_POST["userName"];
+
+
+    echo "The length of your name is: " . strlen($userName);
+}
+?>
+
+</body>
+</html>

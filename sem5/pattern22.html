@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Pattern</title>
+</head>
+<body>
+
+<?php
+// Function to print the given pattern
+function printPattern($rows) {
+    for ($i = 1; $i <= $rows; $i++) {
+        // Alternate between 0 and 1
+        $value = $i % 2;
+
+        for ($j = 1; $j <= $i; $j++) {
+            echo $value;
+
+            // Toggle the value between 0 and 1
+            $value = 1 - $value;
+        }
+
+        // Move to the next line
+        echo "<br>";
+    }
+}
+
+// Call the function with the number of rows
+printPattern(5);
+?>
+
+</body>
+</html>

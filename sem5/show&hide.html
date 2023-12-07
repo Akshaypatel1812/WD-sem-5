@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show/Hide Password Example</title>
+</head>
+<body>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required> <br>
+        
+        <!-- Checkbox to show/hide the password -->
+        <label>Show Password: <input type="checkbox" id="showPassword"></label>
+    </form>
+
+    <script>
+        // Function to show/hide the password field based on the checkbox
+        document.getElementById("showPassword").addEventListener("change", function () {
+            var passwordInput = document.getElementById("password");
+            if (this.checked) {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    </script>
+</body>
+</html>

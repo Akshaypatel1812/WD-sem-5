@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown List Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+   <label for="myDropdown">Select an option</label>
+   <select id="myDropdown">
+    <option value="option1">option1</option>
+    <option value="option2">option2</option>
+    <option value="option3">option3</option>
+   </select>
+
+   <p id="selectedOption">Selected option written here</p>
+
+   <script>
+    $("#myDropdown").change(function(){
+       var selectedOption=$(this).val();
+
+       $("#selectedOption").text("Selected option: " + selectedOption);
+        
+    });
+   </script>
+</body>
+</html>

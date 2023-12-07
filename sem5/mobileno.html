@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mobile Number Validation</title>
+</head>
+<body>
+    <input type="text" id="mobileNumber" placeholder="Enter Mobile Number">
+    <button onclick="checkMobileNumber()">Check</button>
+
+    <script>
+        function checkMobileNumber() {
+            var mobileNumber = document.getElementById("mobileNumber").value;
+           
+            // Define a regular expression to match mobile numbers starting with 9 or 8
+            var regex = /^[89]\d{9}$/;
+
+            if (regex.test(mobileNumber)) {
+                alert("Valid mobile number.");
+            } else {
+                alert("Invalid mobile number. Mobile number should start with 9 or 8.");
+            }
+        }
+    </script>
+</body>
+</html>
